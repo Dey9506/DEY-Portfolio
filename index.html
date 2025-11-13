@@ -1,244 +1,213 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mes TP notés</title>
-  <style>
-    :root{
-      --bg:#0f172a;          /* slate-900 */
-      --panel:#111827;       /* gray-900 */
-      --text:#e5e7eb;        /* gray-200 */
-      --muted:#94a3b8;       /* slate-400 */
-      --accent:#22d3ee;      /* cyan-400 */
-      --accent-2:#a78bfa;    /* violet-400 */
-      --ring: rgba(34,211,238,.35);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monju - Système Information</title>
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans","Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1000px 600px at 10% -10%, rgba(167,139,250,.25), transparent 60%),
-                  radial-gradient(1000px 600px at 110% 110%, rgba(34,211,238,.2), transparent 60%),
-                  var(--bg);
-      color:var(--text);
-      display:flex; flex-direction:column; align-items:center; padding:2rem;
-    }
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
 
-    /* --- MENU NAVIGATION --- */
-    nav{
-      width:100%;
-      background:rgba(17,24,39,0.8);
-      backdrop-filter:blur(6px);
-      border-bottom:1px solid rgba(255,255,255,.1);
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
-    .menu{
-      max-width:1000px;
-      margin:0 auto;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      list-style:none;
-      padding:.5rem 1rem;
-      gap:1rem;
-    }
-    .menu > li{
-      position:relative;
-    }
-    .menu > li > a{
-      text-decoration:none;
-      color:var(--text);
-      padding:.5rem .8rem;
-      border-radius:8px;
-      display:inline-block;
-      transition:background .2s ease;
-    }
-    .menu > li > a:hover{
-      background:rgba(255,255,255,.08);
-    }
+        /* Background */
+        body {
+            background: #0A0F1E;
+            color: #fff;
+        }
 
-    /* Sous-menu déroulant */
-    .submenu{
-      display:none;
-      position:absolute;
-      top:100%;
-      left:0;
-      background:rgba(17,24,39,0.95);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:8px;
-      list-style:none;
-      padding:.5rem 0;
-      min-width:180px;
-    }
-    .submenu li a{
-      display:block;
-      padding:.5rem .8rem;
-      color:var(--text);
-      text-decoration:none;
-      white-space:nowrap;
-      transition:background .2s;
-    }
-    .submenu li a:hover{
-      background:rgba(255,255,255,.1);
-    }
+        /* Navigation bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
 
-    .menu li:hover > .submenu{
-      display:block;
-    }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
 
-    /* --- CONTENU PRINCIPAL --- */
-    .card{
-      width:min(800px, 95vw);
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:2rem;
-      box-shadow:0 20px 60px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-      backdrop-filter: blur(8px);
-      position:relative;
-      margin-top:1.5rem;
-    }
+        .navbar a {
+            color: #dfe6ff;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
 
-    .header{
-      display:flex; gap:1rem; align-items:center; justify-content:space-between; flex-wrap:wrap;
-      margin-bottom:1.25rem;
-    }
+        .navbar a:hover {
+            color: #7aa2ff;
+        }
 
-    .id{
-      display:flex; flex-direction:column; gap:.25rem;
-    }
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 30px;
+            backdrop-filter: blur(12px);
+        }
 
-    .nom{font-size:clamp(1.4rem, 1rem + 2vw, 2rem); font-weight:700; letter-spacing:.3px}
-    .classe{color:var(--muted)}
+        .header-box {
+            margin-bottom: 30px;
+        }
 
-    .badge{
-      border:1px solid rgba(255,255,255,.18);
-      padding:.35rem .65rem; border-radius:999px; font-size:.85rem; color:var(--muted);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
-    }
+        .header-box h1 {
+            font-size: 42px;
+            font-weight: 700;
+        }
 
-    .liste{
-      display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; margin-top:1rem;
-    }
+        .header-box h2 {
+            font-size: 22px;
+            opacity: 0.6;
+        }
 
-    .tp{
-      display:flex; flex-direction:column; gap:.6rem;
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px; padding:1rem;
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-      position:relative; overflow:hidden;
-    }
+        /* Added title - Système Information */
+        .subtitle {
+            margin-top: 10px;
+            font-size: 20px;
+            color: #80aaff;
+            font-weight: 500;
+        }
 
-    .tp::before{
-      content:""; position:absolute; inset:-1px; border-radius:16px;
-      background: conic-gradient(from 180deg, var(--accent), var(--accent-2), var(--accent));
-      filter: blur(16px); opacity:.12; z-index:0;
-    }
+        .year {
+            float: right;
+            opacity: 0.5;
+            font-size: 16px;
+            margin-top: -40px;
+        }
 
-    .tp h3{margin:0; font-size:1.1rem; position:relative; z-index:1}
-    .tp p{margin:0; color:var(--muted); font-size:.95rem; position:relative; z-index:1}
+        .section-title {
+            margin: 20px 0;
+            font-size: 26px;
+        }
 
-    .actions{display:flex; gap:.6rem; margin-top:.8rem; position:relative; z-index:1}
+        /* Cards */
+        .cards {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
 
-    .lien{
-      appearance:none; text-decoration:none; cursor:pointer;
-      border:1px solid rgba(255,255,255,.18);
-      padding:.6rem .9rem; border-radius:12px; font-weight:600; font-size:.95rem;
-      color:var(--text);
-      background:radial-gradient(120% 120% at 0% 0%, rgba(167,139,250,.25), transparent 60%),
-                 radial-gradient(120% 120% at 100% 100%, rgba(34,211,238,.25), transparent 60%),
-                 rgba(255,255,255,.04);
-      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
-    }
-    .lien:hover{ transform: translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.3); border-color:var(--ring)}
-    .lien:focus{ outline:none; box-shadow:0 0 0 6px var(--ring)}
+        .card {
+            flex: 1;
+            min-width: 280px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    footer{margin-top:1.25rem; color:var(--muted); font-size:.9rem; text-align:center}
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
 
-    a:focus-visible{outline:2px dashed var(--accent); outline-offset:3px}
+        .card p {
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
 
-    @media print{
-      body{background:white; color:#111827}
-      .card{box-shadow:none; border:1px solid #e5e7eb; background:white}
-      .lien{background:white; color:#111827}
-      nav{display:none}
-    }
-  </style>
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #5c6cff, #3a47d5);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn.secondary {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .update {
+            margin-top: 30px;
+            opacity: 0.6;
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-  
-  <!-- ✅ MENU HORIZONTAL -->
-  <nav>
-    <ul class="menu">
-      <li><a href="#">Accueil</a></li>
-      <li><a href="#">TP notés</a></li>
-      <li>
-        <a href="#">Ressources ▾</a>
-        <ul class="submenu">
-          <li><a href="#">Supports de cours</a></li>
-          <li><a href="#">Dépôts Git</a></li>
-          <li><a href="#">Liens utiles</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
 
-  <main class="card" role="main">
-    <div class="header">
-      <div class="id" aria-label="Identité de l'étudiant">
-        <div class="nom">Monju</div>
-        <div class="classe">L3 MIAGE</div>
-      </div>
-      <span class="badge" aria-label="Année scolaire">Année scolaire 2025–2026</span>
-    </div>
+    <header class="navbar">
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">TP notés</a></li>
+                <li><a href="#">Ressources</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <section aria-labelledby="tps">
-      <h2 id="tps" style="margin:0 0 .25rem 0; font-size:1.15rem; color:var(--muted); font-weight:600">TP notés</h2>
-      <div class="liste">
-        <article class="tp" aria-labelledby="tp1-titre">
-          <h3 id="tp1-titre">TP noté 1</h3>
-          <p>Thème / petit résumé du TP.</p>
-          <div class="actions">
-            <a class="lien" href="#" target="_blank" rel="noopener">Voir le rendu</a>
-            <a class="lien" href="#" target="_blank" rel="noopener">Sujet</a>
-          </div>
-        </article>
+    <section class="container">
 
-        <article class="tp" aria-labelledby="tp2-titre">
-          <h3 id="tp2-titre">TP noté 2</h3>
-          <p>Thème / petit résumé du TP.</p>
-          <div class="actions">
-            <a class="lien" href="#" target="_blank" rel="noopener">Voir le rendu</a>
-            <a class="lien" href="#" target="_blank" rel="noopener">Sujet</a>
-          </div>
-        </article>
+        <div class="header-box">
+            <h1>Monju</h1>
+            <h2>L3 MIAGE</h2>
 
-        <article class="tp" aria-labelledby="tp3-titre">
-          <h3 id="tp3-titre">TP noté 3</h3>
-          <p>Thème / petit résumé du TP.</p>
-          <div class="actions">
-            <a class="lien" href="#" target="_blank" rel="noopener">Voir le rendu</a>
-            <a class="lien" href="#" target="_blank" rel="noopener">Sujet</a>
-          </div>
-        </article>
-      </div>
+            <!-- Added title -->
+            <h3 class="subtitle">Système Information</h3>
+
+            <span class="year">Année scolaire 2025–2026</span>
+        </div>
+
+        <h2 class="section-title">TP notés</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>TP noté 1</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a class="btn" href="#">Voir le rendu</a>
+                    <a class="btn secondary" href="#">Sujet</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>TP noté 2</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a class="btn" href="#">Voir le rendu</a>
+                    <a class="btn secondary" href="#">Sujet</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>TP noté 3</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a class="btn" href="#">Voir le rendu</a>
+                    <a class="btn secondary" href="#">Sujet</a>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="update">Dernière mise à jour : 14 novembre 2025</p>
+
     </section>
 
-    <footer>
-      <span>Dernière mise à jour : <time id="maj" aria-label="date de mise à jour"></time></span>
-    </footer>
-  </main>
-
-  <script>
-    const t = document.getElementById('maj');
-    const f = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' });
-    t.textContent = f.format(new Date());
-  </script>
 </body>
 </html>
