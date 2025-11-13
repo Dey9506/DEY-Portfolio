@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Système Information - Monju</title>
+    <title>Système Information</title>
 
     <style>
         * {
@@ -87,3 +87,137 @@
             background: rgba(255,255,255,0.05);
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #5c6cff, #3a47d5);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn.secondary {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .update {
+            margin-top: 30px;
+            text-align: center;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER PRINCIPAL -->
+    <header class="main-header">
+        <h1>Système Information</h1>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">TP notés</a></li>
+            <li><a href="#">Ressources</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <div class="container">
+        <h2>Tous les cours </h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>1er cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>2ème cours </h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>3ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+             <div class="card">
+                <h3>4ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+             <div class="card">
+                <h3>5ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+             <div class="card">
+                <h3>6ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+             <div class="card">
+                <h3>7ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="#" class="btn">Voir le rendu</a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <p class="update">Dernière mise à jour : 14 novembre 2025</p>
+    </div>
+
+</body>
+</html>
