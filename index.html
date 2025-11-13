@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Système Information</title>
+    <title>Système Information - Monju</title>
 
     <style>
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,82 +13,67 @@
             font-family: "Inter", sans-serif;
         }
 
-        /* Background */
         body {
             background: #0A0F1E;
             color: #fff;
         }
 
-        /* Navigation bar */
-        .navbar {
+        /* HEADER PRINCIPAL */
+        .main-header {
+            text-align: center;
+            padding: 40px 20px 20px;
             background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
+            backdrop-filter: blur(12px);
+        }
+
+        .main-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 18px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
         }
 
         .navbar ul {
             list-style: none;
             display: flex;
-            gap: 40px;
             justify-content: center;
+            gap: 50px;
         }
 
         .navbar a {
             color: #dfe6ff;
             font-size: 18px;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         .navbar a:hover {
             color: #7aa2ff;
         }
 
-        /* Main container */
+        /* PAGE CONTENT */
         .container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 30px;
             background: rgba(255,255,255,0.03);
             border-radius: 30px;
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
         }
 
-        .header-box {
-            margin-bottom: 30px;
+        .container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
-        .header-box h1 {
-            font-size: 42px;
-            font-weight: 700;
-        }
-
-        .header-box h2 {
-            font-size: 22px;
-            opacity: 0.6;
-        }
-
-        /* Added title - Système Information */
-        .subtitle {
-            margin-top: 10px;
-            font-size: 20px;
-            color: #80aaff;
-            font-weight: 500;
-        }
-
-        .year {
-            float: right;
-            opacity: 0.5;
-            font-size: 16px;
-            margin-top: -40px;
-        }
-
-        .section-title {
-            margin: 20px 0;
-            font-size: 26px;
-        }
-
-        /* Cards */
+        /* CARDS */
         .cards {
             display: flex;
             gap: 25px;
@@ -102,112 +86,4 @@
             padding: 20px;
             background: rgba(255,255,255,0.05);
             border-radius: 20px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
             border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 22px;
-        }
-
-        .card p {
-            margin-bottom: 20px;
-            opacity: 0.7;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 10px 18px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #5c6cff, #3a47d5);
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            opacity: 0.8;
-        }
-
-        .btn.secondary {
-            background: rgba(255,255,255,0.15);
-        }
-
-        .update {
-            margin-top: 30px;
-            opacity: 0.6;
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
-
-    <header class="navbar">
-        <nav>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">TP notés</a></li>
-                <li><a href="#">Ressources</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="container">
-
-        <div class="header-box">
-            <h1>Monju</h1>
-            <h2>L3 MIAGE</h2>
-
-            <!-- Added title -->
-            <h4 class="subtitle">Système Information</h3>
-
-            <span class="year">Année scolaire 2025–2026</span>
-        </div>
-
-        <h2 class="section-title">TP notés</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>TP noté 1</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-                    <a class="btn" href="#">Voir le rendu</a>
-                    <a class="btn secondary" href="#">Sujet</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>TP noté 2</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-                    <a class="btn" href="#">Voir le rendu</a>
-                    <a class="btn secondary" href="#">Sujet</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>TP noté 3</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-                    <a class="btn" href="#">Voir le rendu</a>
-                    <a class="btn secondary" href="#">Sujet</a>
-                </div>
-            </div>
-
-        </div>
-
-        <p class="update">Dernière mise à jour : 14 novembre 2025</p>
-
-    </section>
-
-</body>
-</html>
