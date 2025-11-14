@@ -165,6 +165,18 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
+<!-- Testing  -->
+<script>
+    // Get the "file" parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const file = urlParams.get("file");
+
+    // Convert DOCX → Google Docs viewer (works online)
+    const viewerURL = "https://docs.google.com/gview?embedded=true&url=" + window.location.origin + "/" + file;
+
+    document.write(`<iframe src="${viewerURL}"></iframe>`);
+</script>
+    
 
     <!-- CONTENT -->
     <div class="container">
@@ -177,9 +189,10 @@
                 <h3>1er cours</h3>
                 <p>Thème / petit résumé du TP.</p>
                 <div class="buttons">
-                    <a href="td_PGI_exercice.docx" class="btn file-btn">
-                        <img class="file-icon"> Voir le rendu
-                    </a>
+                    <a href="view-file.html?file=td_PGI_exercice.docx" class="btn file-btn">
+    <img class="file-icon"> Voir le rendu
+</a>
+
                     <a href="#" class="btn secondary">Sujet</a>
                 </div>
             </div>
