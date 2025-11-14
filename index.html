@@ -31,7 +31,7 @@
             font-weight: 700;
         }
 
-        /* NAVIGATION */
+        /* NAVBAR */
         .navbar {
             background: rgba(255, 255, 255, 0.04);
             padding: 18px;
@@ -50,14 +50,14 @@
             color: #dfe6ff;
             font-size: 18px;
             text-decoration: none;
-            transition: 0.3s ease;
+            transition: 0.3s;
         }
 
         .navbar a:hover {
             color: #7aa2ff;
         }
 
-        /* PAGE CONTENT */
+        /* CONTENT */
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -67,15 +67,205 @@
             backdrop-filter: blur(10px);
         }
 
-        .cards {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
+        .container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
-        /* CARD */
+        /* CARDS */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
         .card {
             flex: 1;
             min-width: 280px;
             padding: 20px;
-            background:
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #5c6cff, #3a47d5);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .btn.secondary {
+            background: rgba(255,255,255,0.15);
+        }
+
+        /* ICON */
+        .file-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Extension badge */
+        .file-btn::after {
+            content: attr(data-ext);
+            font-size: 11px;
+            margin-left: 6px;
+            background: rgba(255,255,255,0.18);
+            padding: 3px 6px;
+            border-radius: 6px;
+        }
+
+        .update {
+            margin-top: 30px;
+            text-align: center;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+        <h1>Système Information</h1>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">TP notés</a></li>
+            <li><a href="#">Ressources</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENT -->
+    <div class="container">
+        <h2>Tous les cours</h2>
+
+        <div class="cards">
+
+            <!----------------- CARD 1 ----------------->
+            <div class="card">
+                <h3>1er cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="cours.docx" class="btn file-btn">
+                        <img class="file-icon"> Voir le rendu
+                    </a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <!----------------- CARD 2 ----------------->
+            <div class="card">
+                <h3>2ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="cours2.pdf" class="btn file-btn">
+                        <img class="file-icon"> Voir le rendu
+                    </a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <!----------------- CARD 3 ----------------->
+            <div class="card">
+                <h3>3ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="cours3.odt" class="btn file-btn">
+                        <img class="file-icon"> Voir le rendu
+                    </a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <!----------------- CARD 4 ----------------->
+            <div class="card">
+                <h3>4ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="cours4.xlsx" class="btn file-btn">
+                        <img class="file-icon"> Voir le rendu
+                    </a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <!----------------- CARD 5 ----------------->
+            <div class="card">
+                <h3>5ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+                <div class="buttons">
+                    <a href="cours5.docx" class="btn file-btn">
+                        <img class="file-icon"> Voir le rendu
+                    </a>
+                    <a href="#" class="btn secondary">Sujet</a>
+                </div>
+            </div>
+
+            <!----------------- ... other cards kept ... ----------------->
+
+            <div class="card">
+                <h3>Projet Finale</h3>
+                <div class="buttons">
+                    <a href="projet_finale.pdf" class="btn file-btn">
+                        <img class="file-icon"> Voir le rendu
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="update">Dernière mise à jour : 14 novembre 2025</p>
+    </div>
+
+    <!-- FILE ICON SCRIPT (WORKS FOR ALL BUTTONS) -->
+    <script>
+        const icons = {
+            pdf: "data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><text x='7' y='17' font-size='8' fill='white'>PDF</text></svg>",
+            docx: "data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><text x='6' y='17' font-size='8' fill='white'>DOC</text></svg>",
+            xlsx: "data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><text x='5' y='17' font-size='8' fill='white'>XLSX</text></svg>",
+            odt: "data:image/svg+xml;utf8,<svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><path d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/><polyline points='14 2 14 8 20 8'/><text x='6' y='17' font-size='8' fill='white'>ODT</text></svg>"
+        };
+
+        document.querySelectorAll(".file-btn").forEach(btn => {
+            const href = btn.getAttribute("href");
+            const ext = href.split(".").pop().toLowerCase();
+            const icon = btn.querySelector(".file-icon");
+
+            btn.setAttribute("data-ext", ext.toUpperCase());
+            icon.src = icons[ext] || icons["pdf"];
+        });
+    </script>
+
+</body>
+</html>
