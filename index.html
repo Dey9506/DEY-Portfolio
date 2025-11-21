@@ -101,287 +101,40 @@
 
         .buttons {
             display: flex;
-            gap: 15px;
-            align-items: center;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        
+        /* Collapsible dropdown */
+        details {
+            width: 100%;
+        }
 
-        /* SECONDARY BUTTON */
-        .btn.secondary {
+        summary {
             padding: 10px 18px;
-            border-radius: 10px;
             background: rgba(255,255,255,0.15);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .update {
-            margin-top: 30px;
-            text-align: center;
-            opacity: 0.5;
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- HEADER -->
-    <header class="main-header">
-        <h1>Système Information</h1>
-    </header>
-
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">TP notés</a></li>
-            <li><a href="#">Ressources</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-    
-
-    <!-- CONTENT -->
-    <div class="container">
-        <h2>Tous les cours</h2>
-
-        <div class="cards">
-
-            <!----------------- CARD 1 WITH DROPDOWN ----------------->
-            <div class="card">
-                <h3>1er cours</h3>
-                <p>Thème / petit résumé du TP.</p>
-
-               <div class="buttons">
-    <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
-                </div>
-            </div>
-
-            <!----------------- OTHER CARDS (unchanged) ----------------->
-            <div class="card">
-                <h3>2ème cours</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-    <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
-</div>
-            </div>
-
-            <div class="card">
-                <h3>3ème cours</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-                    <a href="cours3.odt" class="btn secondary">Voir le rendu</a>
-                    <a href="#" class="btn secondary">Sujet</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>4ème cours</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-                    <a href="cours4.xlsx" class="btn secondary">Voir le rendu</a>
-                    <a href="#" class="btn secondary">Sujet</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>5ème cours</h3>
-                <p>Thème / petit résumé du TP.</p>
-                <div class="buttons">
-                    <a href="cours5.docx" class="btn secondary">Voir le rendu</a>
-                    <a href="#" class="btn secondary">Sujet</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Projet Finale</h3>
-                <div class="buttons">
-                    <a href="projet_finale.pdf" class="btn secondary">Voir le rendu</a>
-                </div>
-            </div>
-
-        </div>
-
-        <p class="update">Dernière mise à jour : 14 novembre 2025</p>
-    </div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Système Information</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Inter", sans-serif;
-        }
-
-        body {
-            background: #0A0F1E;
-            color: #fff;
-        }
-
-        /* HEADER */
-        .main-header {
-            text-align: center;
-            padding: 40px 20px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-        }
-
-        .main-header h1 {
-            font-size: 48px;
-            font-weight: 700;
-        }
-
-        /* NAVBAR */
-        .navbar {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-        }
-
-        .navbar ul {
+            border-radius: 10px;
+            cursor: pointer;
             list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-        }
-
-        .navbar a {
-            color: #dfe6ff;
-            font-size: 18px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .navbar a:hover {
-            color: #7aa2ff;
-        }
-
-        /* CONTENT */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .container h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        /* CARDS */
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        .card {
-            flex: 1;
-            min-width: 280px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
-        }
-
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            opacity: 0.7;
-            margin-bottom: 20px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        /*****************************
-         *       DROPDOWN MENU      *
-         *****************************/
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-btn {
-            padding: 10px 18px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, #5c6cff, #3a47d5);
-            color: white;
             font-weight: 600;
-            cursor: pointer;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .dropdown-btn:hover {
-            opacity: 0.8;
+        summary:hover {
+            background: rgba(255,255,255,0.25);
         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 48px;
-            left: 0;
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(12px);
-            border-radius: 12px;
-            padding: 12px 0;
-            min-width: 180px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.4);
-            z-index: 20;
-        }
-
-        .dropdown-content a {
+        details a {
             display: block;
-            padding: 10px 20px;
+            padding: 10px 15px;
+            background: rgba(255,255,255,0.08);
+            margin-top: 5px;
+            border-radius: 8px;
             text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-            transition: 0.2s;
-        }
-
-        .dropdown-content a:hover {
-            background: rgba(255,125,203,50.08);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* SECONDARY BUTTON */
-        .btn.secondary {
-            padding: 10px 18px;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.15);
             color: white;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
+        }
+
+        details a:hover {
+            background: rgba(255,255,255,0.18);
         }
 
         .update {
@@ -416,67 +169,92 @@
 
         <div class="cards">
 
-            <!----------------- CARD 1 WITH DROPDOWN ----------------->
+            <!-- CARD 1 with TD 1 menu -->
             <div class="card">
                 <h3>1er cours</h3>
                 <p>Thème / petit résumé du TP.</p>
 
-               <div class="buttons">
-    <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
-</div>
-                    </div>
+                <div class="buttons">
 
-                    <a href="#" class="btn secondary">Sujet</a>
+                    <details>
+                        <summary>TD 1</summary>
+
+                        <a href="TD1_SI.pdf" target="_blank">TD 1 SI</a>
+                        <a href="TD1_PGI.pdf" target="_blank">TD 1 PGI</a>
+                        <a href="PGI_exercice.xls" target="_blank">PGI exercice.xls</a>
+
+                    </details>
+
                 </div>
             </div>
 
-            <!----------------- OTHER CARDS ----------------->
+            <!-- CARD 2 -->
             <div class="card">
                 <h3>2ème cours</h3>
                 <p>Thème / petit résumé du TP.</p>
+
                 <div class="buttons">
-                    <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
+                    <details>
+                        <summary>TD 2</summary>
+                        <a href="training.pdf" target="_blank">TP PDF</a>
+                        <a href="#">Sujet</a>
+                    </details>
                 </div>
             </div>
 
+            <!-- CARD 3 -->
             <div class="card">
                 <h3>3ème cours</h3>
                 <p>Thème / petit résumé du TP.</p>
+
                 <div class="buttons">
-                    <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
+                    <details>
+                        <summary>TD 3</summary>
+                        <a href="cours3.odt">Cours 3 (odt)</a>
+                        <a href="#">Sujet</a>
+                    </details>
                 </div>
             </div>
 
+            <!-- CARD 4 -->
             <div class="card">
                 <h3>4ème cours</h3>
                 <p>Thème / petit résumé du TP.</p>
+
                 <div class="buttons">
-                     <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
+                    <details>
+                        <summary>TD 4</summary>
+                        <a href="cours4.xlsx">Cours 4 (xlsx)</a>
+                        <a href="#">Sujet</a>
+                    </details>
                 </div>
             </div>
 
+            <!-- CARD 5 -->
             <div class="card">
                 <h3>5ème cours</h3>
                 <p>Thème / petit résumé du TP.</p>
+
                 <div class="buttons">
-                    <a href="training.pdf" class="btn secondary" target="_blank">Voir le rendu</a>
-    <a href="#" class="btn secondary">Sujet</a>
+                    <details>
+                        <summary>TD 5</summary>
+                        <a href="cours5.docx">Cours 5 (docx)</a>
+                        <a href="#">Sujet</a>
+                    </details>
                 </div>
             </div>
 
+            <!-- FINAL PROJECT -->
             <div class="card">
                 <h3>Projet Finale</h3>
-             
-              <!----------------- demo for using xls file  ----------------->
-                <div class="buttons">
-    <a href="PGI_exercice.ods" class="btn secondary" target="_blank">Voir le fichier</a>
-    <a href="#" class="btn secondary">Sujet</a>
-</div>
 
+                <div class="buttons">
+                    <details>
+                        <summary>Projet</summary>
+                        <a href="PGI_exercice.ods">Fichier ODS</a>
+                        <a href="#">Sujet</a>
+                    </details>
+                </div>
             </div>
 
         </div>
