@@ -6,6 +6,7 @@
     <title>Système Information</title>
 
     <style>
+        /* GLOBAL */
         * {
             margin: 0;
             padding: 0;
@@ -14,62 +15,61 @@
         }
 
         body {
-            background: #0A0F1E;
-            color: #fff;
+            background: #F3F4F6; /* Light gray */
+            color: #111827; /* Dark gray text */
         }
 
         /* HEADER */
         .main-header {
             text-align: center;
-            padding: 40px 20px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
+            padding: 40px 20px 30px;
+            background: #1E3A8A; /* Royal blue */
+            color: white;
         }
 
         .main-header h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 700;
         }
 
         /* NAVBAR */
         .navbar {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
+            background: #3B82F6; /* Bright professional blue */
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .navbar ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: 40px;
         }
 
         .navbar a {
-            color: #dfe6ff;
+            color: white;
             font-size: 18px;
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: 500;
+            transition: 0.25s;
         }
 
         .navbar a:hover {
-            color: #7aa2ff;
+            opacity: 0.8;
         }
 
-        /* CONTENT */
+        /* MAIN CONTENT */
         .container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 30px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
         }
 
         .container h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 34px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #1E3A8A;
         }
 
         /* CARDS */
@@ -82,65 +82,68 @@
         .card {
             flex: 1;
             min-width: 280px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            padding: 25px;
+            background: white;
+            border-radius: 18px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
 
         .card h3 {
             font-size: 22px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: #1E3A8A;
         }
 
         .card p {
             opacity: 0.7;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            font-size: 15px;
         }
 
         .buttons {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* Collapsible dropdown */
-        details {
-            width: 100%;
-        }
-
-        summary {
-            padding: 10px 18px;
-            background: rgba(255,255,255,0.15);
+        /* DROPDOWNS */
+        details summary {
+            padding: 10px 16px;
+            background: #E0E7FF; /* Light blue */
+            color: #1E3A8A;
             border-radius: 10px;
             cursor: pointer;
-            list-style: none;
             font-weight: 600;
+            border: 1px solid #C7D2FE;
+            list-style: none;
         }
 
-        summary:hover {
-            background: rgba(255,255,255,0.25);
+        details summary:hover {
+            background: #C7D2FE;
         }
 
         details a {
             display: block;
-            padding: 10px 15px;
-            background: rgba(255,255,255,0.08);
-            margin-top: 5px;
+            padding: 10px 14px;
+            background: #F3F4F6;
+            margin-top: 6px;
             border-radius: 8px;
             text-decoration: none;
-            color: white;
+            color: #1F2937;
+            border: 1px solid #E5E7EB;
+            transition: 0.2s;
         }
 
         details a:hover {
-            background: rgba(255,255,255,0.18);
+            background: #E5E7EB;
         }
 
         .update {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
-            opacity: 0.5;
+            color: #6B7280;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -161,224 +164,105 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
-    
 
-    <!-- 1st CONTENT -->
-    <div class="container">
-        <h2>Tous les TDs</h2>
 
-        <div class="cards">
-
-            <!-- TD 1 WITH ICONS -->
-            <div class="card">
-                <h3>Le TD </h3>
-                <p>le premier tutoriel personnel. </p>
-
-                <div class="buttons">
-
-                   <details>
-                        <summary>TD 1</summary>
-
-                        <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
-                            <li>
-                                <a href="TD 1 SI 2.pdf" target="_blank">
-                                    📄 TD 1 SI
-                                </a>
-                            </li>
-                            <li>
-                                <a href="dossier 3.pdf" target="_blank">
-                                    📄 TD 1 DOSSIER
-                                </a>
-                            </li>
-                            <li>
-                                <a href="PGI_exercice.ods" target="_blank">
-                                    📊 PGI exercises
-                                </a>
-                            </li>
-                        </ul>
-
-                    </details>
-
-                </div>
-            </div>
-
-            <!-- TD 2 -->
-            <div class="card">
-                <h3>2ème TD</h3>
-                <p>la deuxième tutoriel personnel</p>
-
-                <div class="buttons">
-                    <details>
-                        <summary>TD 2</summary>
-                        <a href="TD2_SI.pdf" target="_blank">TP2 PDF</a>
-                        <a href="TP Odoo.pdf" target="_blank">TP2 TP Odoo</a>
-                        <a href="TP Odoo captures.pdf" target="_blank">TP2 Odoo Captures</a>
-                    </details>
-                </div>
-            </div>
-
-            <!-- TD 3 -->
-            <div class="card">
-                <h3>3ème TD</h3>
-                <p>la troisième tutoriel personnel</p>
-
-                <div class="buttons">
-                    <details>
-                        <summary>TD 3</summary>
-                        <a href="DiagramSIportfolio.drawio.pdf" target="_blank">DIAGRAM-DRAWIO</a>
-                        <a href="Evenement.png" target="_blank">Evénement_CAS-Quilou</a>
-                        <a href="Diagramme MCD.png" target="_blank">DIAGRAM-MCD</a>
-                    </details>
-                </div>
-            </div>
-
-            <!-- TD 4 -->
-            <div class="card">
-                <h3>4ème TD</h3>
-                <p>la quatrième tutoriel personnel</p>
-
-                <div class="buttons">
-                    <details>
-                        <summary>TD 4</summary>
-                        <a href="tp gantt.pdf" target="_blank">TD4 GANTT</a>
-                        <a href="graphics.pdf" target="_blank">TD4 GANTT (GRAPHICS)</a>
-                        <a href="les livrables SI TD4.pdf" target="_blank">TD4 les Livrables</a>
-                    </details>
-                </div>
-            </div>
-
-            <!-- TD 5 -->
-            <div class="card">
-                <h3>5ème TD</h3>
-                <p>le cinquième tutoriel personnel.</p>
-
-                <div class="buttons">
-                    <details>
-                        <summary>TD 5</summary>
-                        <a href="tp gantt.pdf" target="_blank">TD4 GANTT</a>
-                        <a href="graphics.pdf" target="_blank">TD4 GANTT (GRAPHICS)</a>
-                        <a href="les livrables SI TD4.pdf" target="_blank">TD4 les Livrables</a>
-                    </details>
-                </div>
-            </div>
-
-            <!-- TD 6 -->
-            <div class="card">
-                <h3>6ème TD</h3>
-                <p>la sixième tutoriel personnel.</p>
-
-                <div class="buttons">
-                    <details>
-                        <summary>TD 6</summary>
-                        <a href="Diagramme des classes.pdf" target="_blank">Diagramme des Classes</a>
-                        <a href="Exercices use case.pdf" target="_blank">Use CASE</a>
-                        <a href="les livrables SI TD4.pdf" target="_blank">TD4 les Livrables</a>
-                    </details>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- 2nd CONTENT : COURS -->
+    <!-- CONTENT -->
     <div class="container">
         <h2>Tous les cours</h2>
 
         <div class="cards">
 
-            <!-- Course 1 -->
+            <!-- CARD 1 WITH ICONS IN TD1 -->
             <div class="card">
                 <h3>1er cours</h3>
-                <p>Le premier leçon du chapitre.</p>
+                <p>Thème / petit résumé du TP.</p>
 
                 <div class="buttons">
-                   <details>
-                        <summary>Séance 1</summary>
+                    <details>
+                        <summary>TD 1</summary>
 
-                        <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
-                            <li><a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a></li>
-                            <li><a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a></li>
-                            <li><a href="PGI_exercice.ods" target="_blank">PGI exercises</a></li>
+                        <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
+                            <li><a href="TD1_SI.pdf" target="_blank">📄 TD 1 SI</a></li>
+                            <li><a href="TD1_PGI.pdf" target="_blank">📄 TD 1 PGI</a></li>
+                            <li><a href="PGI_exercice.ods" target="_blank">📊 PGI Exercices</a></li>
                         </ul>
 
                     </details>
                 </div>
             </div>
 
-            <!-- Course 2 -->
+            <!-- CARD 2 -->
             <div class="card">
                 <h3>2ème cours</h3>
-                <p>La deuxième leçon du chapitre.</p>
+                <p>Thème / petit résumé du TP.</p>
 
                 <div class="buttons">
-                   <details>
-                        <summary>Séance 2</summary>
-
-                        <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
-                            <li><a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a></li>
-                            <li><a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a></li>
-                            <li><a href="PGI_exercice.ods" target="_blank">PGI exercises</a></li>
-                        </ul>
-
+                    <details>
+                        <summary>TD 2</summary>
+                        <a href="training.pdf" target="_blank">TP PDF</a>
+                        <a href="#">Sujet</a>
                     </details>
                 </div>
             </div>
 
-            <!-- Course 3 -->
+            <!-- CARD 3 -->
             <div class="card">
                 <h3>3ème cours</h3>
-                <p>La troisième leçon du chapitre.</p>
+                <p>Thème / petit résumé du TP.</p>
 
                 <div class="buttons">
-                   <details>
-                        <summary>Séance 3</summary>
-
-                        <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
-                            <li><a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a></li>
-                            <li><a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a></li>
-                            <li><a href="PGI_exercice.ods" target="_blank">PGI exercises</a></li>
-                        </ul>
-
+                    <details>
+                        <summary>TD 3</summary>
+                        <a href="cours3.odt">Cours 3 (odt)</a>
+                        <a href="#">Sujet</a>
                     </details>
                 </div>
             </div>
 
-            <!-- Course 4 -->
+            <!-- CARD 4 -->
             <div class="card">
                 <h3>4ème cours</h3>
-                <p>La quatrième leçon du chapitre.</p>
+                <p>Thème / petit résumé du TP.</p>
 
                 <div class="buttons">
-                   <details>
-                        <summary>Séance 4</summary>
-
-                        <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
-                            <li><a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a></li>
-                            <li><a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a></li>
-                            <li><a href="PGI_exercice.ods" target="_blank">PGI exercises</a></li>
-                        </ul>
-
+                    <details>
+                        <summary>TD 4</summary>
+                        <a href="cours4.xlsx">Cours 4 (xlsx)</a>
+                        <a href="#">Sujet</a>
                     </details>
                 </div>
             </div>
 
-            <!-- Final project -->
+            <!-- CARD 5 -->
             <div class="card">
-                <h3>Projet Finale</h3>
+                <h3>5ème cours</h3>
+                <p>Thème / petit résumé du TP.</p>
+
+                <div class="buttons">
+                    <details>
+                        <summary>TD 5</summary>
+                        <a href="cours5.docx">Cours 5 (docx)</a>
+                        <a href="#">Sujet</a>
+                    </details>
+                </div>
+            </div>
+
+            <!-- PROJECT -->
+            <div class="card">
+                <h3>Projet Final</h3>
+
                 <div class="buttons">
                     <details>
                         <summary>Projet</summary>
-                        <a href="PGI_exercice.ods" target="_blank">Cahier des charges</a>
-                        <a href="PGI_exercice.ods" target="_blank">Documentation technique</a>
-                        <a href="PGI_exercice.ods" target="_blank">Livrables</a>
-                        <a href="PGI_exercice.ods" target="_blank">Rapport final</a>
+                        <a href="PGI_exercice.ods">Fichier ODS</a>
+                        <a href="#">Sujet</a>
                     </details>
                 </div>
             </div>
 
         </div>
 
-        <p class="update">## 2025 Portfolio Système d'Information S5 MIAGE ##</p>
+        <p class="update">Dernière mise à jour : 21 novembre 2025</p>
     </div>
 
 </body>
