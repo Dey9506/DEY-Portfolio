@@ -6,6 +6,7 @@
     <title>Système Information</title>
 
     <style>
+        /* BASE RESET */
         * {
             margin: 0;
             padding: 0;
@@ -13,29 +14,34 @@
             font-family: "Inter", sans-serif;
         }
 
+        /* DARK FUTURISTIC BACKGROUND */
         body {
-            background: #0A0F1E;
-            color: #fff;
+            background: #0B0E1E;
+            color: #E8EAFF;
         }
 
         /* HEADER */
         .main-header {
             text-align: center;
-            padding: 40px 20px 20px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 60px 20px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.35);
             backdrop-filter: blur(12px);
         }
 
         .main-header h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 700;
+            background: linear-gradient(90deg, #6C5CE7, #74B9FF);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         /* NAVBAR */
         .navbar {
             background: rgba(255, 255, 255, 0.04);
             padding: 18px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
         }
 
@@ -43,7 +49,7 @@
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: 60px;
         }
 
         .navbar a {
@@ -51,25 +57,31 @@
             font-size: 18px;
             text-decoration: none;
             transition: 0.3s;
+            font-weight: 500;
         }
 
         .navbar a:hover {
-            color: #7aa2ff;
+            color: #74B9FF;
+            text-shadow: 0 0 8px #74B9FF;
         }
 
-        /* CONTENT */
+        /* CONTAINERS */
         .container {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 30px;
+            margin: 50px auto;
+            padding: 35px;
             background: rgba(255,255,255,0.03);
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 0 35px rgba(0,0,0,0.4);
         }
 
         .container h2 {
             font-size: 36px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            color: #74B9FF;
+            letter-spacing: 1px;
         }
 
         /* CARDS */
@@ -79,23 +91,40 @@
             gap: 25px;
         }
 
+        /* Special grid for Tous les cours → 2 cards per row */
+        .cours-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
         .card {
             flex: 1;
             min-width: 280px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            padding: 22px;
+            background: #11172A;
+            border-radius: 22px;
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 0 22px rgba(0,0,0,0.45);
+            transition: 0.35s;
+        }
+
+        /* Hover glow */
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 25px rgba(108,92,231,0.55);
         }
 
         .card h3 {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 10px;
+            background: linear-gradient(90deg, #6C5CE7, #74B9FF);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .card p {
-            opacity: 0.7;
+            opacity: 0.8;
             margin-bottom: 20px;
         }
 
@@ -105,42 +134,48 @@
             gap: 10px;
         }
 
-        /* Collapsible dropdown */
+        /* DROPDOWN */
         details {
             width: 100%;
         }
 
         summary {
-            padding: 10px 18px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
+            padding: 12px 18px;
+            background: rgba(255,255,255,0.10);
+            border-radius: 12px;
             cursor: pointer;
             list-style: none;
             font-weight: 600;
+            transition: 0.3s;
         }
 
         summary:hover {
-            background: rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.18);
+            box-shadow: 0 0 10px rgba(255,255,255,0.1);
         }
 
         details a {
             display: block;
             padding: 10px 15px;
-            background: rgba(255,255,255,0.08);
-            margin-top: 5px;
-            border-radius: 8px;
+            background: rgba(255,255,255,0.07);
+            margin-top: 7px;
+            border-radius: 10px;
             text-decoration: none;
-            color: white;
+            color: #E8EAFF;
+            transition: 0.3s;
         }
 
         details a:hover {
-            background: rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.16);
+            transform: translateX(5px);
         }
 
+        /* FOOTER */
         .update {
             margin-top: 30px;
             text-align: center;
             opacity: 0.5;
+            font-size: 14px;
         }
     </style>
 </head>
@@ -161,261 +196,166 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
-    
 
-    <!-- 1st CONTENT -->
+    <!-- █████ FIRST BLOCK — TDs █████ -->
     <div class="container">
         <h2>Tous les TDs</h2>
 
         <div class="cards">
 
-            <!-- CARD 1 with TD 1 menu -->
+            <!-- CARD 1 -->
             <div class="card">
-                <h3>Le TD </h3>
-                <p>le premier tutoriel personnel. </p>
+                <h3>Le TD</h3>
+                <p>Le premier tutoriel personnel.</p>
 
                 <div class="buttons">
-
                    <details>
-    <summary>TD 1</summary>
-
-    <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
-        <li>
-            <a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a>
-        </li>
-        <li>
-            <a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a>
-        </li>
-        <li>
-            <a href="PGI_exercice.ods" target="_blank"> PGI exercises </a>
-        </li>
-    </ul>
-
-</details>
-
-
+                        <summary>TD 1</summary>
+                        <a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a>
+                        <a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a>
+                        <a href="PGI_exercice.ods" target="_blank">PGI exercises</a>
+                    </details>
                 </div>
             </div>
 
             <!-- CARD 2 -->
             <div class="card">
                 <h3>2ème TD</h3>
-                <p>la deuxième tutoriel personnel</p>
+                <p>La deuxième tutoriel personnel.</p>
 
                 <div class="buttons">
                     <details>
                         <summary>TD 2</summary>
-                        <a href="TD2_SI.pdf" target="_blank">TP2 PDF</a>
-                       <a href="TP Odoo.pdf" target="_blank">TP2 TP Odoo</a>
-                        <a href="TP Odoo captures.pdf" target="_blank">TP2 Odoo Captures </a>
+                        <a href="TD2_SI.pdf">TP2 PDF</a>
+                        <a href="TP Odoo.pdf">TP Odoo</a>
+                        <a href="TP Odoo captures.pdf">Odoo Captures</a>
                     </details>
                 </div>
             </div>
 
             <!-- CARD 3 -->
             <div class="card">
-                <h3>3ème TD </h3>
-                <p>la troisième tutoriel personnel</p>
+                <h3>3ème TD</h3>
+                <p>La troisième tutoriel personnel.</p>
 
-                <div class="buttons">
-                    <details>
-                        <summary>TD 3</summary>
-                        <a href="DiagramSIportfolio.drawio.pdf" target="_blank"> DIAGRAM-DRAWIO </a>
-                       <a href="Evenement.png" target="_blank" > Evénement_CAS-Quilou </a>
-                        <a href="Diagramme MCD.png" target="_blank"> DIAGRAM-MCD </a>
-                    </details>
-                </div>
+                <details>
+                    <summary>TD 3</summary>
+                    <a href="DiagramSIportfolio.drawio.pdf">Diagram DRAWIO</a>
+                    <a href="Evenement.png">Événement CAS-Quilou</a>
+                    <a href="Diagramme MCD.png">Diagramme MCD</a>
+                </details>
             </div>
 
             <!-- CARD 4 -->
             <div class="card">
                 <h3>4ème TD</h3>
-                <p>la quatrième tutoriel personnel</p>
+                <p>La quatrième tutoriel personnel.</p>
 
-                <div class="buttons">
-                    <details>
-                        <summary>TD 4</summary>
-                        <a href="Processus organisationnel.pdf" target="_blank">TD4 Processus Organisationnel </a>
-                        <a href="Diagramme TD processus organisationnel copy.pdf" target="_blank">TD4 Diagramme TD processus </a>
-                         
-                        
-                    </details>
-                </div>
+                <details>
+                    <summary>TD 4</summary>
+                    <a href="Processus organisationnel.pdf">Processus Organisationnel</a>
+                    <a href="Diagramme TD processus organisationnel copy.pdf">Diagramme</a>
+                </details>
             </div>
-                 <!-- CARD 5 -->
+
+            <!-- CARD 5 -->
             <div class="card">
                 <h3>5ème TD</h3>
-                <p>le cinquième tutoriel personnel.</p>
+                <p>Le cinquième tutoriel personnel.</p>
 
-                <div class="buttons">
-                    <details>
-                        <summary>TD 5</summary>
-                        <a href="tp gantt.pdf" target="_blank">TD4 GANTT </a>
-                        <a href="graphics.pdf" target="_blank">TD4 GANTT (GRAPHICS)</a>
-                         <a href="les livrables SI TD4.pdf" target="_blank">TD4 les Livrables </a>
-                        
-                    </details>
-                </div>
+                <details>
+                    <summary>TD 5</summary>
+                    <a href="tp gantt.pdf">Gantt</a>
+                    <a href="graphics.pdf">Graphics</a>
+                    <a href="les livrables SI TD4.pdf">Livrables</a>
+                </details>
             </div>
-             <!-- CARD 6 -->
+
+            <!-- CARD 6 -->
             <div class="card">
                 <h3>6ème TD</h3>
-                <p>la sixième  tutoriel personnel.</p>
+                <p>La sixième tutoriel personnel.</p>
 
-                <div class="buttons">
-                    <details>
-                        <summary>TD 6</summary>
-                        <a href="Diagramme des classes.pdf" target="_blank">Diagramme des Classes </a>
-                        <a href="Exercices use case.pdf" target="_blank">Use CASE</a>
-                         <a href="les livrables SI TD4.pdf" target="_blank">TD4 les Livrables </a>
-                        
-                    </details>
-                </div>
-            </div>
-                 </div>
+                <details>
+                    <summary>TD 6</summary>
+                    <a href="Diagramme des classes.pdf">Diagramme des Classes</a>
+                    <a href="Exercices use case.pdf">Use Case</a>
+                </details>
             </div>
 
-            <!-- 2nd containers of cours  -->
+        </div>
+    </div>
 
-             <!-- CONTENT -->
+    <!-- █████ SECOND BLOCK — TOUS LES COURS █████ -->
     <div class="container">
         <h2>Tous les cours</h2>
 
-        <div class="cards">
+        <!-- 🔥 Modified to 2 blocks per row -->
+        <div class="cards cours-grid">
 
-            <!-- CARD 1 with TD 1 menu -->
+            <!-- 1er cours -->
             <div class="card">
                 <h3>1er cours</h3>
-                <p>Le premier leçon du chapitre .</p>
-
-                <div class="buttons">
-
-                   <details>
-    <summary>Séance 1</summary>
-
-    <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
-
-         <li>
-            <a href="Document synthétique des phases-2.docx" target="_blank"> Synthétique des phases </a>
-        </li>
-        <li>
-            <a href="TD 1 SI 2.pdf" target="_blank">  SI</a>
-        </li>
-        <li>
-            <a href="dossier 3.pdf" target="_blank"> Dossier </a>
-        </li>
-       
-    </ul>
-
-</details>
-
-
-                </div>
+                <details>
+                    <summary>Séance 1</summary>
+                    <a href="Document synthétique des phases-2.docx">Synthétique des phases</a>
+                    <a href="TD 1 SI 2.pdf">SI</a>
+                    <a href="dossier 3.pdf">Dossier</a>
+                </details>
             </div>
 
-             <!-- 2nd cours  -->
-             <div class="card">
+            <!-- 2ème cours -->
+            <div class="card">
                 <h3>2ème cours</h3>
-                <p> La deuxième leçon du chapitre </p>
-
-                <div class="buttons">
-
-                   <details>
-    <summary>Séance 2</summary>
-
-    <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
-        <li>
-            <a href="cours information.pdf" target="_blank"> Cours Information </a>
-        </li>
-        <li>
-            <a href="dossier gestion projet.odt" target="_blank"> Gestion de projet </a>
-        </li>
-        <li>
-            <a href="Énoncé du Projet" target="_blank"> Énoncé du projet </a>
-        </li>
-    </ul>
-
-            </details>
-
-
-                </div>
+                <details>
+                    <summary>Séance 2</summary>
+                    <a href="cours information.pdf">Cours Information</a>
+                    <a href="dossier gestion projet.odt">Gestion de projet</a>
+                    <a href="Énoncé du Projet">Énoncé du projet</a>
+                </details>
             </div>
-            <!-- 3rd cours -->
-                  <div class="card">
+
+            <!-- 3ème cours -->
+            <div class="card">
                 <h3>3ème cours</h3>
-                <p> La troisième  leçon du chapitre </p>
-
-                <div class="buttons">
-
-                   <details>
-    <summary> Séance 3</summary>
-
-    <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
-        <li>
-            <a href="USE CASE-2.docx" target="_blank"> Use Case</a>
-        </li>
-       
-    </ul>
-
-            </details>
-
-
-                </div>
+                <details>
+                    <summary>Séance 3</summary>
+                    <a href="USE CASE-2.docx">Use Case</a>
+                </details>
             </div>
-        <!-- 4ème cours -->
-                  <div class="card">
+
+            <!-- 4ème cours -->
+            <div class="card">
                 <h3>4ème cours</h3>
-                <p> La quatrième  leçon du chapitre </p>
-
-                <div class="buttons">
-
-                   <details>
-    <summary>Séance 4</summary>
-
-    <ul style="margin-top: 10px; list-style: none; padding-left: 0;">
-        <li>
-            <a href="cours gestion de projet version étudiant.odt" target="_blank"> Le projet version étudiant </a>
-        </li>
-        <li>
-            <a href="SFG_TalentSeek.docx" target="_blank"> SFG_TalentSeek </a>
-        </li>
-       
-    </ul>
-
-            </details>
-
-
-                </div>
-            </div>
-              </div>
+                <details>
+                    <summary>Séance 4</summary>
+                    <a href="cours gestion de projet version étudiant.odt">Projet Étudiant</a>
+                    <a href="SFG_TalentSeek.docx">SFG TalentSeek</a>
+                </details>
             </div>
 
-             <!-- 3nd containers of cours  -->
+        </div>
+    </div>
 
-             <!-- CONTENT -->
+    <!-- █████ THIRD BLOCK — PROJET FINAL █████ -->
     <div class="container">
         <h2>Projet Final</h2>
 
         <div class="cards">
-
-            <!-- FINAL PROJECT -->
             <div class="card">
-                <h3> Le Projet </h3>
+                <h3>Le Projet</h3>
 
-                <div class="buttons">
-                    <details>
-                        <summary>Les partitions du Projet </summary>
-                        <a href="PGI_exercice.ods" target="_blank">Cahier des charges</a>
-                         <a href="PGI_exercice.ods" target="_blank">Documentation technique</a>
-                         <a href="PGI_exercice.ods" target="_blank">Livrables</a>
-                         <a href="PGI_exercice.ods" target="_blank">Rapport final</a>
-                    </details>
-                </div>
+                <details>
+                    <summary>Partitions du projet</summary>
+                    <a href="PGI_exercice.ods">Cahier des charges</a>
+                    <a href="PGI_exercice.ods">Documentation technique</a>
+                    <a href="PGI_exercice.ods">Livrables</a>
+                    <a href="PGI_exercice.ods">Rapport final</a>
+                </details>
             </div>
-
         </div>
 
-        <p class="update"> ## 2025 Portfolio Système d'Information S5 MIAGE ##</p>
+        <p class="update">## 2025 Portfolio Système d'Information S5 MIAGE ##</p>
     </div>
 
 </body>
