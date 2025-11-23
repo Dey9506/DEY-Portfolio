@@ -18,6 +18,7 @@
         body {
             background: #0B0E1E;
             color: #E8EAFF;
+            scroll-behavior: smooth; /* Smooth scrolling */
         }
 
         /* HEADER */
@@ -43,6 +44,9 @@
             padding: 18px;
             border-bottom: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
         .navbar ul {
@@ -123,22 +127,6 @@
             color: transparent;
         }
 
-        .card p {
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        /* DROPDOWN */
-        details {
-            width: 100%;
-        }
-
         summary {
             padding: 12px 18px;
             background: rgba(255,255,255,0.10);
@@ -170,7 +158,6 @@
             transform: translateX(5px);
         }
 
-        /* FOOTER */
         .update {
             margin-top: 30px;
             text-align: center;
@@ -191,14 +178,17 @@
     <nav class="navbar">
         <ul>
             <li><a href="#">Accueil</a></li>
-            <li><a href="#"> Les TDs</a></li>
-            <li><a href="#"> Les Cours SI</a></li>
-            <li><a href="#"> Projet Final</a></li>
+
+            <!-- 🔥 Added section links -->
+            <li><a href="#tds">Les TDs</a></li>
+            <li><a href="#cours">Les Cours SI</a></li>
+            <li><a href="#projet">Projet Final</a></li>
         </ul>
     </nav>
 
     <!-- █████ FIRST BLOCK — TDs █████ -->
-    <div class="container">
+    <!-- 🔥 Added ID -->
+    <div class="container" id="tds">
         <h2>Tous les TDs</h2>
 
         <div class="cards">
@@ -208,14 +198,12 @@
                 <h3>Le TD</h3>
                 <p>Le premier tutoriel personnel.</p>
 
-                <div class="buttons">
-                   <details>
-                        <summary>TD 1</summary>
-                        <a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a>
-                        <a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a>
-                        <a href="PGI_exercice.ods" target="_blank">PGI exercises</a>
-                    </details>
-                </div>
+                <details>
+                    <summary>TD 1</summary>
+                    <a href="TD 1 SI 2.pdf" target="_blank">TD 1 SI</a>
+                    <a href="dossier 3.pdf" target="_blank">TD 1 DOSSIER</a>
+                    <a href="PGI_exercice.ods" target="_blank">PGI exercises</a>
+                </details>
             </div>
 
             <!-- CARD 2 -->
@@ -223,14 +211,12 @@
                 <h3>2ème TD</h3>
                 <p>La deuxième tutoriel personnel.</p>
 
-                <div class="buttons">
-                    <details>
-                        <summary>TD 2</summary>
-                        <a href="TD2_SI.pdf">TP2 PDF</a>
-                        <a href="TP Odoo.pdf">TP Odoo</a>
-                        <a href="TP Odoo captures.pdf">Odoo Captures</a>
-                    </details>
-                </div>
+                <details>
+                    <summary>TD 2</summary>
+                    <a href="TD2_SI.pdf">TP2 PDF</a>
+                    <a href="TP Odoo.pdf">TP Odoo</a>
+                    <a href="TP Odoo captures.pdf">Odoo Captures</a>
+                </details>
             </div>
 
             <!-- CARD 3 -->
@@ -287,13 +273,12 @@
     </div>
 
     <!-- █████ SECOND BLOCK — TOUS LES COURS █████ -->
-    <div class="container">
+    <!-- 🔥 Added ID -->
+    <div class="container" id="cours">
         <h2>Les Cours de SI</h2>
 
-        <!-- 🔥 Modified to 2 blocks per row -->
         <div class="cards cours-grid">
 
-            <!-- 1er cours -->
             <div class="card">
                 <h3>1er cours</h3>
                 <details>
@@ -304,7 +289,6 @@
                 </details>
             </div>
 
-            <!-- 2ème cours -->
             <div class="card">
                 <h3>2ème cours</h3>
                 <details>
@@ -315,7 +299,6 @@
                 </details>
             </div>
 
-            <!-- 3ème cours -->
             <div class="card">
                 <h3>3ème cours</h3>
                 <details>
@@ -324,7 +307,6 @@
                 </details>
             </div>
 
-            <!-- 4ème cours -->
             <div class="card">
                 <h3>4ème cours</h3>
                 <details>
@@ -338,7 +320,8 @@
     </div>
 
     <!-- █████ THIRD BLOCK — PROJET FINAL █████ -->
-    <div class="container">
+    <!-- 🔥 Added ID -->
+    <div class="container" id="projet">
         <h2>Projet Final</h2>
 
         <div class="cards">
